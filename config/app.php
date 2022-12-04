@@ -212,11 +212,10 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
-
     'cities' => [
         'london' => ['lng' => '-0.1262', 'lat' => '51.5002'],
         'new york' => ['lng' => '-74.01', 'lat' => '40.71'],
         'tokyo' => ['lng' => '139.6823', 'lat' => '35.6785']
-    ],
+    ]
 
 ];
