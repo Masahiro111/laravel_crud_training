@@ -12,14 +12,13 @@ class WeatherController extends Controller
     {
         $coordinates = config('app.cities.' . $city);
 
-        return Cache::remember('city' . $city, 60 * 5, function () use ($coordinates) {
-            $response = Http::get('https://api.open-meteo.com/v1/forecast?latitude=' . $coordinates['lat'] . '&longitude=' . $coordinates['lng'] . '&daily=temperature_2m_max,temperature_2m_min&timezone=UTC');
+        $response = Http::get('https://api.open-meteo.com/v1/forecast?latitude=' . $coordinates['lat'] . '&longitude=' . $coordinates['lng'] . '&hourly=temperature_2m,weathercode&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Asia%2FTokyo');
 
-            if ($response->successful()) {
-                return $response->json('daily');
-            }
+        if ($response->successful()) {
+            // return $response->json([]); 全部返却
+            return $response->json('hourly');
+        }
 
-            return response()->json([]);
-        });
+        return response()->json([]);
     }
 }
