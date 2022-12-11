@@ -15,9 +15,6 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('chirps.index')" :active="request()->routeIs('chirps.index')">
-                        {{ __('Chirps') }}
-                    </x-nav-link>
                 </div>
             </div>
 
@@ -46,7 +43,7 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                             onclick="event.preventDefault();
+                                    onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -73,9 +70,6 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('chirps.index')" :active="request()->routeIs('chirps.index')">
-                {{ __('Chirps') }}
-            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -95,7 +89,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                                           onclick="event.preventDefault();
+                            onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
